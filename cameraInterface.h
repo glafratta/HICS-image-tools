@@ -1,14 +1,21 @@
 #include <stdlib.h>
-#include "camera.h"
+#include <array>
+#include <opencv2/opencv.hpp>
 
-typeDef int[3] pixel;
+//#include "camera.h"
 
-class CameraInterface{
-enum Colour {RED GREEN BLUE};
+typedef std::array<int,3> Pixel; //OpenCV BGR pixel
+enum Colour {RED, GREEN, BLUE};
+
+ class CameraInterface{
+// pixel RedThreshold = {75, 75, 195};
+// pixel BlueThreshold ={170, 210, 70};
 
 CameraInterface()= default;
 
-Colour whatColour()
+Colour whatColour(Pixel);
+
+Colour whatColour(cv::Mat);
 
 
 };
