@@ -16,6 +16,13 @@ Colour CameraInterface::whatColour(pixel px){
     }
 }
 
-Colour CameraInterface::whatColour(cv::Mat mat){
-    mat = cv::
+Colour CameraInterface::whatColour(cv::Mat src){
+    cv::Mat mat[3];
+    cv::cvtColour(src, src, COLOR_BGR2HSV); //convert to HSV pixel format, range 0-180
+    cv::split(src, mat);
+    for (int r=0; r<mat.rows; r++){
+        for (int c=0; c<mat.cols; c++){
+            
+        }
+    }
 }
