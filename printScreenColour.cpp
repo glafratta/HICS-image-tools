@@ -4,6 +4,7 @@ struct CameraCallback:Camera::SceneCallback{
     CameraInterface cameraInterface;
     void nextScene(const cv::Mat&mat){
         Colour colour =cameraInterface.whatColour(mat);
+        printf("finished what coulur\n");
         cameraInterface.printColour(colour);
     }
 };

@@ -32,7 +32,7 @@ Colour whatColour(cv::Mat);
 
 Colour getHue(int); //"dumb" range-based binning of hue values
 
-std::pair<bool, int> findFirst(std::vector <std::pair<Colour, int>>, Colour); //returns a) if value t is in vector v and b) its index
+std::pair<bool, int> findIndex(std::vector <std::pair<Colour, int>>, Colour); //returns a) if value t is in vector v and b) its index
 
 //std::pair<bool, int> findSecond(std::vector <std::pair <T, I>, I);
 void printColour(Colour);
