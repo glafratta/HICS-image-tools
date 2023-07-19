@@ -1,5 +1,6 @@
 #include <array>
 #include <vector>
+#include "opencv2/imgproc.hpp"
 #include "camera.h"
 typedef std::array<int,3> Pixel; //OpenCV BGR pixel2
 typedef std::pair<int,int> HueRange;
@@ -19,6 +20,7 @@ const std::vector <std::pair<Colour, HueRange>> HUES= {{RED,RED_HUE_RANGE},
 
 
 class CameraInterface{
+public:
 // pixel RedThreshold = {75, 75, 195};
 // pixel BlueThreshold ={170, 210, 70};
 
@@ -30,8 +32,7 @@ Colour whatColour(cv::Mat);
 
 Colour getHue(int); //"dumb" range-based binning of hue values
 
-template <typename T, typename I>
-std::pair<bool, int> findFirst(std::vector <std::pair<T, I>>, T); //returns a) if value t is in vector v and b) its index
+std::pair<bool, int> findFirst(std::vector <std::pair<Colour, int>>, Colour); //returns a) if value t is in vector v and b) its index
 
 //std::pair<bool, int> findSecond(std::vector <std::pair <T, I>, I);
 void printColour(Colour);

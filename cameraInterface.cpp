@@ -21,18 +21,19 @@ Colour CameraInterface::whatColour(Pixel px){
 
 Colour CameraInterface::whatColour(cv::Mat src){
     cv::Mat mat, matSplit[3];
-    cv::cvtColour(src, mat, COLOR_BGR2HSV); //convert to HSV pixel format, range 0-180
-    cv::split(mat, matSplit);
+    cv::cvtColor(src, mat, cv::COLOR_BGR2HSV); //convert to HSV pixel format, range 0-180
+//    cv::split(mat, matSplit);
     std::vector <std::pair<Colour, int>> coloursPoints;
-    Colour colour
+    Colour colour;
     for (auto p: HUES){ //make vector;
         coloursPoints.push_back(std::pair<Colour, int>(p.first, 0));
     }
-    for (int r=0; r<matSplit.rows; r++){
-        for (int c=0; c<matSplit.cols; c++){
-            auto pixel =matSplit.at(r, c);
+    for (int r=0; r<mat.rows; r++){
+        for (int c=0; c<mat.cols; c++){
+            cv::Vec3f pixel =mat.at<cv::Vec3f>(r, c);
             int hue = pixel[0];
-            std::pair <bool, int> huePair= findFirst(coloursPoints, hue); //find index of that colour in the vector
+            Colour hueName = getHue(hue);
+            std::pair <bool, int> huePair= findFirst(coloursPoints, hueName); //find index of that colour in the vector
             if (huePair.first){
                 coloursPoints[huePair.second].second++; //assign a point to that colour in the vector
             }
@@ -61,7 +62,7 @@ Colour CameraInterface::getHue (int hue){
     return result;
 }
 
-std::pair<bool, int> CameraInterface::findFirst(std::vector <std::pair<T, I>>v, T t){
+std::pair<bool, int> CameraInterface::findFirst(std::vector <std::pair<Colour, int>>v, Colour t){
     std::pair <bool, int>result(false, 0);
     for (result.second=0;result.second<v.size();result.second++){
         if (v[result.second].first ==t){
