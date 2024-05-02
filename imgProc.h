@@ -1,5 +1,6 @@
 #include "libcam2opencv.h"
-
+#include <libcamera/libcamera.h>
+#include <unistd.h>
 class ImgProc{
     public:
     ImgProc(){}

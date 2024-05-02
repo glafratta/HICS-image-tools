@@ -1,6 +1,7 @@
 #include "imgProc.h"
 #include "window.h"
-#include <libcamera/libcamera.h>
+
+
 
 
     // struct MyCallback : Libcam2OpenCV::Callback {
