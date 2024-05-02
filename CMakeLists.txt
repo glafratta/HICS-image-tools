@@ -18,7 +18,7 @@ add_executable(optic-flow optic-flow.cpp)
 
 target_link_libraries(CLoCK-sensor cam2opencv ${OpenCV_LIBS} pthread PkgConfig::LIBCAMERA)
 
-target_link_libraries(optic-flow CLoCK-sensor)
+target_link_libraries(optic-flow CLoCK-sensor QtViewer)
 
 set(CMAKE_BUILD_TYPE Debug)
 
