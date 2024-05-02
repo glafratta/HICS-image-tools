@@ -12,7 +12,7 @@ set_target_properties(CLoCK-vision PROPERTIES CMAKE_POSITION_INDEPENDENT_CODE TR
 
 add_executable(optic-flow optic-flow.cpp)
 
-target_link_libraries(CLoCK-vision cvCamera ${OpenCV_LIBS} pthread)
+target_link_libraries(CLoCK-vision cam2opencv ${OpenCV_LIBS} pthread)
 
 target_link_libraries(optic-flow CLoCK-vision)
 
