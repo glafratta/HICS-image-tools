@@ -14,7 +14,7 @@ add_executable(optic-flow optic-flow.cpp)
 
 target_link_libraries(CLoCK-vision cam2opencv ${OpenCV_LIBS} pthread libcamera)
 
-target_link_libraries(optic-flow CLoCK-vision)
+target_link_libraries(optic-flow CLoCK-vision libcamera)
 
 set(CMAKE_BUILD_TYPE Debug)
 
