@@ -16,7 +16,7 @@ set_target_properties(CLoCK-sensor PROPERTIES CMAKE_POSITION_INDEPENDENT_CODE TR
 
 add_executable(optic-flow optic-flow.cpp)
 
-target_link_libraries(CLoCK-sensor cam2opencv ${OpenCV_LIBS} pthread ${LIBCAMERA_INCLUDE_DIRS})
+target_link_libraries(CLoCK-sensor cam2opencv ${OpenCV_LIBS} pthread PkgConfig::LIBCAMERA)
 
 target_link_libraries(optic-flow CLoCK-sensor)
 
