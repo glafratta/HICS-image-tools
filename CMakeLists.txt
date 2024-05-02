@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.7.0)
 
 project(CLoCK-sensor LANGUAGES CXX)
 
+find_package(PkgConfig)
+
 find_package(OpenCV REQUIRED)
 
 pkg_check_modules(LIBCAMERA REQUIRED IMPORTED_TARGET libcamera)
