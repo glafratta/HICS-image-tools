@@ -1,6 +1,6 @@
 #include "imgProc.h"
 #include "window.h"
-
+#include <QApplication>
 
 
 
